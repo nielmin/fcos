@@ -13,3 +13,9 @@ storage:
       mode: 0644
       contents:
         inline: fcos
+  directories:
+    - path: /home/core/.config/containers/systemd
+      mode: 0644
+  trees:
+    - local: containers
+      path: /home/core/.config/containers/systemd
