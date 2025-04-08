@@ -20,7 +20,44 @@ storage:
         name: core
       contents:
         local: quadlets/caddy.container
+    - path: /home/core/containers/caddy/config/Caddyfile
+      user:
+        name: core
+      group:
+        name: core
+      contents:
+        local: containers/caddy/config/Caddyfile
   directories:
+    - path: /home/core/containers
+      user:
+        name: core
+      group:
+        name: core
+    - path: /home/core/containers/caddy
+      user:
+        name: core
+      group:
+        name: core
+    - path: /home/core/containers/caddy/config
+      user:
+        name: core
+      group:
+        name: core
+    - path: /home/core/containers/caddy/data
+      user:
+        name: core
+      group:
+        name: core
+    - path: /home/core/containers/caddy/logs
+      user:
+        name: core
+      group:
+        name: core
+    - path: /home/core/containers/caddy/sites
+      user:
+        name: core
+      group:
+        name: core
     - path: /home/core/.config
       user:
         name: core
