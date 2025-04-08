@@ -1,0 +1,18 @@
+[Unit]
+Description=Caddy container
+
+[Container]
+ContainerName=caddy
+Image=docker.io/library/caddy:latest
+PublishPort=1880:80
+PublishPort=1443:443
+Volume=%h/containers/caddy/config:/etc/caddy:z,ro
+Volume=%h/containers/caddy/sites:/srv:z,ro
+Volume=%h/containers/caddy/data:/data
+Volume=%h/containers/caddy/logs:/var/log/caddy
+
+[Service]
+Restart=always
+
+[Install]
+WantedBy=default.target
