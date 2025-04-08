@@ -13,6 +13,13 @@ storage:
       mode: 0644
       contents:
         inline: fcos
+    - path: /home/core/.config/containers/systemd/caddy.container
+      user:
+        name: core
+      group:
+        name: core
+      contents:
+        local: quadlets/caddy.container
   directories:
     - path: /home/core/.config
       mode: 0644
@@ -32,6 +39,3 @@ storage:
         name: core
       group:
         name: core
-  trees:
-    - local: containers
-      path: /home/core/.config/containers/systemd
