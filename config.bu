@@ -22,19 +22,16 @@ storage:
         local: quadlets/caddy.container
   directories:
     - path: /home/core/.config
-      mode: 0644
       user:
         name: core
       group:
         name: core
     - path: /home/core/.config/containers
-      mode: 0644
       user:
         name: core
       group:
         name: core
     - path: /home/core/.config/containers/systemd
-      mode: 0644
       user:
         name: core
       group:
