@@ -27,14 +27,10 @@ storage:
     - path: /etc/containers/systemd/caddy.container
       mode: 0644
       contents:
-        local: quadlets/caddy.container
+        local: files/caddy.container
     - path: /etc/caddy/Caddyfile
-      user:
-        name: core
-      group:
-        name: core
       contents:
-        local: caddy/Caddyfile
+        local: files/Caddyfile
 systemd:
   units:
     - name: podman-auto-update.timer
