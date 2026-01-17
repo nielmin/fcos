@@ -16,6 +16,28 @@
     ]
   },
   "storage": {
+    "directories": [
+      {
+        "path": "/etc/caddy",
+        "mode": 420
+      },
+      {
+        "path": "/etc/caddy/data",
+        "mode": 420
+      },
+      {
+        "path": "/etc/caddy/site",
+        "mode": 420
+      },
+      {
+        "path": "/etc/caddy/config",
+        "mode": 420
+      },
+      {
+        "path": "/etc/caddy/logs",
+        "mode": 420
+      }
+    ],
     "files": [
       {
         "path": "/etc/hostname",
@@ -29,18 +51,12 @@
         "path": "/etc/containers/systemd/caddy.container",
         "contents": {
           "compression": "gzip",
-          "source": "data:;base64,H4sIAAAAAAAC/4SQMU/7MBDFd0v+Dv/lv6G6qBkiS14oSxdUgYAhynC1r6mFY6O7S1D49CihdGAoi/X83u+eTtc85yitVvfInuK7xJLdFkKY/vmSBWJG0kqrZvvza7W66Afo0fmZ1mrXQ4cuFP+GtIrFpHggoMkssU0gyKLVfjikyKd9IXG3db229fqXWVUbW1UbrV5KGnp0/0/msgl/t83GMXbWoPhz/+cNlasjHAXZGqbxbzaAgF3eq1gqHVszAs3KnM+gVfOENEaPrVaPyAIkDtIHTLyEu8wCKbVavUIWDHeTC3iEIclKgDoUrb4CAAD//zFsT5+TAQAA"
+          "source": "data:;base64,H4sIAAAAAAAC/2yOwWrzMAzH7wK9w/cEdaE5FIMvX3fpZZSNbYeQg2qrmZljD1nJyNuPhnZjkIv0k35/hNqXHLVDeODqJX5qLNkdKIT5ny9ZKWYWBIT2cJ86hB9+pIGdv6YRjgP17ELxHyybWEyKZyGZzaJtIuWqCKfxnGJ9PxVRt9/a/fbvqml2tml2CK8ljQM7w+pvF35xxZoala2pMq3JQEp2qWvWl3yJvb31tUQqfbVmIrnS/QeE9pllip47hCeuSqKO0hfNdZHHXJVS6hDeKCuH/7MLfKEx6UZJelaE7wAAAP//Lec3dHwBAAA="
         },
         "mode": 420
       },
       {
-        "group": {
-          "name": "core"
-        },
         "path": "/etc/caddy/Caddyfile",
-        "user": {
-          "name": "core"
-        },
         "contents": {
           "compression": "",
           "source": "data:,localhost%0A%0Arespond%20%22Hello%2C%20world!%22%0A"
