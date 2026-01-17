@@ -8,6 +8,17 @@ passwd:
       groups:
         - wheel
 storage:
+  directories:
+    - path: /etc/caddy
+      mode: 0644
+    - path: /etc/caddy/data
+      mode: 0644
+    - path: /etc/caddy/site
+      mode: 0644
+    - path: /etc/caddy/config
+      mode: 0644
+    - path: /etc/caddy/logs
+      mode: 0644
   files:
     - path: /etc/hostname
       mode: 0644
