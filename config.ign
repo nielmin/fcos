@@ -51,7 +51,7 @@
         "path": "/etc/containers/systemd/caddy.container",
         "contents": {
           "compression": "gzip",
-          "source": "data:;base64,H4sIAAAAAAAC/2yOz0oDMRDG74F5h76ATaF7KIFcrJdepCgqWPYwTabrYDaRyWxl315aW//AXpLfN7+PYXZPmbUFc0c1CH8ol+zXGOM4CyUrciYBA2a3vqYWzA/fY08+nNpgNj125GMJ7yRzLjbxXlBGe9YuoVJVMNthn7i+bYuoXy3cavF/1DRL1zRLMM8lDT15SxouG/7g64S3lZWcrXKc1hEV3fc76UPJB+7c9Z/spNJVZ48oJ/q9BczukeTIgVowD1QVRT2mTxzrWW5yVUypBfOCWSnejr4fkvLNUEnmitKRziIdcEh6iWC+AgAA///RxD4mmAEAAA=="
+          "source": "data:;base64,H4sIAAAAAAAC/2yQsWrDQAyG94N7h7xAfbvhlqZLllJa2kKDB+VOMaLnU5BkB799iZu0GbxI38/3D0L790rWefeEmoRORlzjFnKeN4mrAVUU77zbb2+p8+6Pn2HAmC5t73YD9Bgzp2+UhjgUOgjIHBbdFjBU8+6DyzhgDGjpau7wa8UHJcM2qEzrOoNB+ztXfeJ6pL697dVO4V7bMIFc6P+WF87xjIfmxHl5wRvKRAk7715RDcQilDPMushdVYNSOu8+oRrmxzkOYzF6GBWlMZAebZPxCGOxa/TuJwAA///bgTMmfQEAAA=="
         },
         "mode": 420
       },

@@ -1,0 +1,9 @@
+[Pod]
+PodName=web
+PublishPort=80:80
+PublishPort=443:443
+
+# Network=host
+
+[Install]
+WantedBy=multi-user.target

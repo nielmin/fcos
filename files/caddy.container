@@ -4,13 +4,12 @@ Description=Caddy container
 [Container]
 ContainerName=caddy
 Image=docker.io/library/caddy:latest
-PublishPort=80:80
-PublishPort=443:443
 Volume=/etc/caddy:/etc/caddy:Z
 Volume=/etc/caddy/site:/srv:Z
 Volume=/etc/caddy/data:/data:Z
 Volume=/etc/caddy/config:/config:Z
 Volume=/etc/caddy/logs:/var/log/caddy:Z
+Pod=web.pod
 
 [Service]
 Restart=always
