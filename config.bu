@@ -13,63 +13,35 @@ storage:
       mode: 0644
       contents:
         inline: fcos
-    - path: /home/core/.config/containers/systemd/caddy.container
-      user:
-        name: core
-      group:
-        name: core
+    - path: /etc/containers/systemd/caddy.container
+      mode: 0644
       contents:
         local: quadlets/caddy.container
-    - path: /home/core/containers/caddy/config/Caddyfile
+    - path: /etc/caddy/Caddyfile
       user:
         name: core
       group:
         name: core
       contents:
         local: caddy/Caddyfile
-  directories:
-    - path: /home/core/containers
-      user:
-        name: core
-      group:
-        name: core
-    - path: /home/core/containers/caddy
-      user:
-        name: core
-      group:
-        name: core
-    - path: /home/core/containers/caddy/config
-      user:
-        name: core
-      group:
-        name: core
-    - path: /home/core/containers/caddy/data
-      user:
-        name: core
-      group:
-        name: core
-    - path: /home/core/containers/caddy/logs
-      user:
-        name: core
-      group:
-        name: core
-    - path: /home/core/containers/caddy/sites
-      user:
-        name: core
-      group:
-        name: core
-    - path: /home/core/.config
-      user:
-        name: core
-      group:
-        name: core
-    - path: /home/core/.config/containers
-      user:
-        name: core
-      group:
-        name: core
-    - path: /home/core/.config/containers/systemd
-      user:
-        name: core
-      group:
-        name: core
+systemd:
+  units:
+    - name: podman-auto-update.timer
+      enabled: true
+      dropins:
+        - name: update-hourly.conf
+          contents_local: files/update-hourly.conf
+    - name: quadlet-reload.service
+      enabled: true
+      contents: |
+        [Unit]
+        Description=Reload systemd to pick up Quadlet units
+        After=network-online.target
+        Wants=network-online.target
+
+        [Service]
+        Type=oneshot
+        ExecStart=/usr/bin/systemctl daemon-reload
+
+        [Install]
+        WantedBy=multi-user.target
