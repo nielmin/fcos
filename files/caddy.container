@@ -7,8 +7,9 @@ Image=docker.io/library/caddy:latest
 PublishPort=80:80
 PublishPort=443:443
 Volume=/etc/caddy:/etc/caddy
-Volume=/etc/caddy/sites:/srv
+Volume=/etc/caddy/site:/srv
 Volume=/etc/caddy/data:/data
+Volume=/etc/caddy/config:/config
 Volume=/etc/caddy/logs:/var/log/caddy
 
 [Service]
