@@ -16,89 +16,6 @@
     ]
   },
   "storage": {
-    "directories": [
-      {
-        "group": {
-          "name": "core"
-        },
-        "path": "/home/core/containers",
-        "user": {
-          "name": "core"
-        }
-      },
-      {
-        "group": {
-          "name": "core"
-        },
-        "path": "/home/core/containers/caddy",
-        "user": {
-          "name": "core"
-        }
-      },
-      {
-        "group": {
-          "name": "core"
-        },
-        "path": "/home/core/containers/caddy/config",
-        "user": {
-          "name": "core"
-        }
-      },
-      {
-        "group": {
-          "name": "core"
-        },
-        "path": "/home/core/containers/caddy/data",
-        "user": {
-          "name": "core"
-        }
-      },
-      {
-        "group": {
-          "name": "core"
-        },
-        "path": "/home/core/containers/caddy/logs",
-        "user": {
-          "name": "core"
-        }
-      },
-      {
-        "group": {
-          "name": "core"
-        },
-        "path": "/home/core/containers/caddy/sites",
-        "user": {
-          "name": "core"
-        }
-      },
-      {
-        "group": {
-          "name": "core"
-        },
-        "path": "/home/core/.config",
-        "user": {
-          "name": "core"
-        }
-      },
-      {
-        "group": {
-          "name": "core"
-        },
-        "path": "/home/core/.config/containers",
-        "user": {
-          "name": "core"
-        }
-      },
-      {
-        "group": {
-          "name": "core"
-        },
-        "path": "/home/core/.config/containers/systemd",
-        "user": {
-          "name": "core"
-        }
-      }
-    ],
     "files": [
       {
         "path": "/etc/hostname",
@@ -109,23 +26,18 @@
         "mode": 420
       },
       {
-        "group": {
-          "name": "core"
-        },
-        "path": "/home/core/.config/containers/systemd/caddy.container",
-        "user": {
-          "name": "core"
-        },
+        "path": "/etc/containers/systemd/caddy.container",
         "contents": {
           "compression": "gzip",
           "source": "data:;base64,H4sIAAAAAAAC/4SQMU/7MBDFd0v+Dv/lv6G6qBkiS14oSxdUgYAhynC1r6mFY6O7S1D49CihdGAoi/X83u+eTtc85yitVvfInuK7xJLdFkKY/vmSBWJG0kqrZvvza7W66Afo0fmZ1mrXQ4cuFP+GtIrFpHggoMkssU0gyKLVfjikyKd9IXG3db229fqXWVUbW1UbrV5KGnp0/0/msgl/t83GMXbWoPhz/+cNlasjHAXZGqbxbzaAgF3eq1gqHVszAs3KnM+gVfOENEaPrVaPyAIkDtIHTLyEu8wCKbVavUIWDHeTC3iEIclKgDoUrb4CAAD//zFsT5+TAQAA"
-        }
+        },
+        "mode": 420
       },
       {
         "group": {
           "name": "core"
         },
-        "path": "/home/core/containers/caddy/config/Caddyfile",
+        "path": "/etc/caddy/Caddyfile",
         "user": {
           "name": "core"
         },
@@ -133,6 +45,25 @@
           "compression": "",
           "source": "data:,localhost%0A%0Arespond%20%22Hello%2C%20world!%22%0A"
         }
+      }
+    ]
+  },
+  "systemd": {
+    "units": [
+      {
+        "dropins": [
+          {
+            "contents": "[Timer]\nOnCalendar=hourly\nRandomizedDelaySec=0\n",
+            "name": "update-hourly.conf"
+          }
+        ],
+        "enabled": true,
+        "name": "podman-auto-update.timer"
+      },
+      {
+        "contents": "[Unit]\nDescription=Reload systemd to pick up Quadlet units\nAfter=network-online.target\nWants=network-online.target\n\n[Service]\nType=oneshot\nExecStart=/usr/bin/systemctl daemon-reload\n\n[Install]\nWantedBy=multi-user.target\n",
+        "enabled": true,
+        "name": "quadlet-reload.service"
       }
     ]
   }
