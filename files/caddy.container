@@ -6,14 +6,14 @@ ContainerName=caddy
 Image=docker.io/library/caddy:latest
 PublishPort=80:80
 PublishPort=443:443
-Volume=/etc/caddy:/etc/caddy
-Volume=/etc/caddy/site:/srv
-Volume=/etc/caddy/data:/data
-Volume=/etc/caddy/config:/config
-Volume=/etc/caddy/logs:/var/log/caddy
+Volume=/etc/caddy:/etc/caddy:Z
+Volume=/etc/caddy/site:/srv:Z
+Volume=/etc/caddy/data:/data:Z
+Volume=/etc/caddy/config:/config:Z
+Volume=/etc/caddy/logs:/var/log/caddy:Z
 
 [Service]
 Restart=always
 
 [Install]
-WantedBy=default.target
+WantedBy=multi-user.target default.target
