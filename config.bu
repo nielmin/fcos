@@ -26,7 +26,7 @@ storage:
       group:
         name: core
       contents:
-        local: containers/caddy/config/Caddyfile
+        local: caddy/Caddyfile
   directories:
     - path: /home/core/containers
       user:
