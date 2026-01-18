@@ -2,9 +2,6 @@ name: Build Ignition from Butane
 
 on:
   push:
-    tags:
-      - "v*"
-  workflow_dispatch:
 
 jobs:
   build-and-release:
@@ -36,7 +33,7 @@ jobs:
       - name: Upload Ignition artifact 
         uses: actions/upload-artifact@v4
         with:
-          name: ignition-${TAG}
+          name: ignition
           path: |
             config.ign
 
