@@ -9,15 +9,17 @@ Currently based on [Thomas Letan's](https://github.com/lthms/tinkerbell) configu
 
 ## Features
 - Containers using Podman Quadlets
-    - Custom Caddy build with Cloudflare DNS support
-    - NetBird Mesh VPN
+    - Custom [Caddy](https://github.com/caddyserver/caddy) build with [Cloudflare DNS](https://github.com/caddy-dns/cloudflare) support
+    - [NetBird Mesh VPN](https://netbird.io/)
         - Setup key stored in `podman secret`
 
 ## HOWTO
-1. Download Fedora CoreOS Live ISO
+1. Download [Fedora CoreOS Live ISO](https://fedoraproject.org/coreos/download?stream=stable)
 2. Boot into live environment
 3. Download latest `config.ign` from releases.
-    - `curl -OL https://github.com/nielmin/fcos/releases/download/main/config.ign`
+
+    `curl -OL https://github.com/nielmin/fcos/releases/download/main/config.ign`
+
 4. Run the CoreOS installer:
 
     `sudo coreos-installer install -i config.ign`
