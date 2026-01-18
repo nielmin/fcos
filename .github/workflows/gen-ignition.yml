@@ -29,8 +29,7 @@ jobs:
         uses: softprops/action-gh-release@v2 
         with: 
           name: ${{ steps.date.outputs.today }}
-          tag_name: ${{ steps.date.outputs.today }}
-          # tag_name: ${{ github.ref_name }} 
+          tag_name: ${{ github.ref_name }} 
           generate_release_notes: false
           make_latest: true 
           fail_on_unmatched_files: true 
