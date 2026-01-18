@@ -28,3 +28,9 @@ Currently based on [Thomas Letan's](https://github.com/lthms/tinkerbell) configu
 5. Reboot
 
     `sudo reboot`
+
+6. Provide secrets for Cloudflare DNS and NetBird
+
+    `printf CF_API_TOKEN | podman secret create cf-token - `
+
+    `printf NB_SETUP_KEY | podman secret create nb-client - `
