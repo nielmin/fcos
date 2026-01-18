@@ -10,6 +10,7 @@ Currently based on [Thomas Letan's](https://github.com/lthms/tinkerbell) configu
 ## Features
 - Containers using Podman Quadlets
     - Custom [Caddy](https://github.com/caddyserver/caddy) build with [Cloudflare DNS](https://github.com/caddy-dns/cloudflare) support
+        - `.build` points to `Containerfile` to build custom Caddy image
     - [NetBird Mesh VPN](https://netbird.io/)
         - Setup key stored in `podman secret`
 
