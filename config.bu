@@ -39,6 +39,10 @@ storage:
       mode: 0644
       contents:
         local: files/netbird-client.volume
+    - path: /etc/containers/systemd/web.pod
+      mode: 0644
+      contents:
+        local: files/web.pod
 systemd:
   units:
     - name: podman-auto-update.timer

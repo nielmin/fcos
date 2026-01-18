@@ -77,6 +77,14 @@
           "source": "data:,%5BVolume%5D%0AVolumeName%3Dnb-client%0A"
         },
         "mode": 420
+      },
+      {
+        "path": "/etc/containers/systemd/web.pod",
+        "contents": {
+          "compression": "",
+          "source": "data:,%5BPod%5D%0APodName%3Dweb%0APublishPort%3D80%3A80%0APublishPort%3D443%3A443%0A%0A%23%20Network%3Dhost%0A%0A%5BInstall%5D%0AWantedBy%3Dmulti-user.target%0A"
+        },
+        "mode": 420
       }
     ]
   },
