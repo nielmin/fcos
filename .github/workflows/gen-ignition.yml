@@ -32,7 +32,6 @@ jobs:
         run: | 
           TAG="${GITHUB_REF_NAME}"
           DATE=$(date +'%Y-%m-%d')
-          mv config.ign config.ign
           sha256sum config.ign > "config-${TAG}.ign.sha256"
 
       - name: Upload Ignition artifact 
