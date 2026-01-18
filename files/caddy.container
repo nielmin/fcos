@@ -3,7 +3,7 @@ Description=Caddy container
 
 [Container]
 ContainerName=caddy
-Image=docker.io/library/caddy:latest
+Image=caddy-cf.build
 Volume=/etc/caddy:/etc/caddy:Z
 Volume=/etc/caddy/site:/srv:Z
 Volume=/etc/caddy/data:/data:Z
