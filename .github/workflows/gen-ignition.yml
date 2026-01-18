@@ -31,24 +31,26 @@ jobs:
       - name: Version output files 
         run: | 
           TAG="${GITHUB_REF_NAME}"
-          mv config.ign "config-${TAG}.ign"
-          sha256sum "config-${TAG}.ign" > "config-${TAG}.ign.sha256"
+          DATE=$(date +'%Y-%m-%d')
+          mv config.ign config.ign
+          sha256sum config.ign > "config-${TAG}.ign.sha256"
 
       - name: Upload Ignition artifact 
         uses: actions/upload-artifact@v4
         with:
-          name: ignition-${{ github.ref_name }}
+          name: ignition-${TAG}
           path: |
-            config-${{ github.ref_name }}.ign
-            config-${{ github.ref_name }}.ign.sha256 
+            config.ign
+            config-${TAG}.ign.sha256 
+
       - name: Create GitHub Release (immutable)
         uses: softprops/action-gh-release@v2 
         with: 
-          name: Ignition ${{ github.ref_name }}
+          name: config.ign (${DATE})
           tag_name: ${{ github.ref_name }} 
           generate_release_notes: true
           make_latest: true 
           fail_on_unmatched_files: true 
           files: | 
-            config-${{ github.ref_name }}.ign 
+            config.ign 
             config-${{ github.ref_name }}.ign.sha256
