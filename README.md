@@ -23,25 +23,21 @@ Currently based on [Thomas Letan's](https://github.com/lthms/tinkerbell) configu
 ## HOWTO
 1. Download [Fedora CoreOS Live ISO](https://fedoraproject.org/coreos/download?stream=stable)
 2. Boot into live environment
-3. Download latest `config.ign` from releases.
+3. Run the CoreOS installer:
 
-    `curl -OL https://github.com/nielmin/fcos/releases/download/main/config.ign`
+    `sudo coreos-installer install -I https://github.com/nielmin/fcos/releases/download/main/config.ign /dev/sda`
 
-4. Run the CoreOS installer:
-
-    `sudo coreos-installer install -i config.ign`
-
-5. Reboot
+4. Reboot
 
     `sudo reboot`
 
-6. Provide secrets for Cloudflare DNS and NetBird
+5. Provide secrets for Cloudflare DNS and NetBird
 
     `printf CF_API_TOKEN | sudo podman secret create cf-token - `
 
     `printf NB_SETUP_KEY | sudo podman secret create nb-client - `
 
-7. Format and reload Caddyfile
+6. Format and reload Caddyfile
 
     `sudo podman exec -w /etc/caddy caddy caddy fmt --overwrite`
 
