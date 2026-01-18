@@ -4,7 +4,11 @@
 Used to access my homelab outside my network, which is behind a CGNAT.
 
 ## Status
-Previously had something that did not work.
+
+Mostly done.
+
+Previously had something that was too complicated and did not work.
+
 Currently based on [Thomas Letan's](https://github.com/lthms/tinkerbell) configuration.
 
 ## Features
