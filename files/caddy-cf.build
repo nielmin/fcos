@@ -1,0 +1,6 @@
+[Build]
+ImageTag=caddy-cf-dns
+
+File=/etc/containers/systemd/Containerfile
+
+SetWorkingDirectory=unit
