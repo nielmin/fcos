@@ -25,18 +25,6 @@ jobs:
             -o /workspace/config.ign \
             /workspace/config.bu
 
-      - name: Version output files 
-        run: | 
-          TAG="${GITHUB_REF_NAME}"
-          DATE=$(date +'%Y-%m-%d')
-
-      - name: Upload Ignition artifact 
-        uses: actions/upload-artifact@v4
-        with:
-          name: ignition
-          path: |
-            config.ign
-
       - name: Create GitHub Release (immutable)
         uses: softprops/action-gh-release@v2 
         with: 
