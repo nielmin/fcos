@@ -27,7 +27,7 @@ jobs:
 
       - name: Set date
         id: date
-        run: echo "today=$(date -u +%Y-%m-%d)" >> $GITHUB_OUTPUT
+        run: echo "today=$(date -u +%Y.%m.%d)" >> $GITHUB_OUTPUT
 
       - name: Create GitHub Release (immutable)
         uses: softprops/action-gh-release@v2 
