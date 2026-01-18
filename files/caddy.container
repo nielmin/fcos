@@ -11,6 +11,8 @@ Volume=/etc/caddy/config:/config:Z
 Volume=/etc/caddy/logs:/var/log/caddy:Z
 Pod=web.pod
 
+Secret=cf-token,type=env,target=CF_API_TOKEN
+
 [Service]
 Restart=always
 
