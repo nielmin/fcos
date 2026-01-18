@@ -37,6 +37,12 @@ Currently based on [Thomas Letan's](https://github.com/lthms/tinkerbell) configu
 
 6. Provide secrets for Cloudflare DNS and NetBird
 
-    `printf CF_API_TOKEN | podman secret create cf-token - `
+    `printf CF_API_TOKEN | sudo podman secret create cf-token - `
 
-    `printf NB_SETUP_KEY | podman secret create nb-client - `
+    `printf NB_SETUP_KEY | sudo podman secret create nb-client - `
+
+7. Format and reload Caddyfile
+
+    `sudo podman exec -w /etc/caddy caddy caddy fmt --overwrite`
+
+    `sudo podman exec -w /etc/caddy caddy caddy reload`
