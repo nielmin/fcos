@@ -21,6 +21,7 @@ jobs:
             quay.io/coreos/butane:release \
             --pretty \
             --strict \
+            -d /workspace/files \
             -o /workspace/config.ign \
             /workspace/config.bu
 
