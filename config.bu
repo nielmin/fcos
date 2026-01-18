@@ -50,17 +50,3 @@ systemd:
       dropins:
         - name: update-hourly.conf
           contents_local: files/update-hourly.conf
-    - name: quadlet-reload.service
-      enabled: true
-      contents: |
-        [Unit]
-        Description=Reload systemd to pick up Quadlet units
-        After=network-online.target
-        Wants=network-online.target
-
-        [Service]
-        Type=oneshot
-        ExecStart=/usr/bin/systemctl daemon-reload
-
-        [Install]
-        WantedBy=multi-user.target
