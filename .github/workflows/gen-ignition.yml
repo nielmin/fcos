@@ -28,13 +28,27 @@ jobs:
             -o /workspace/config.ign \
             /workspace/config.bu
 
-      - name: Upload Ignition file
+      - name: Version output files 
+        run: | 
+          TAG="${GITHUB_REF_NAME}"
+          mv config.ign "config-${TAG}.ign"
+          sha256sum "config-${TAG}.ign" > "config-${TAG}.ign.sha256"
+
+      - name: Upload Ignition artifact 
         uses: actions/upload-artifact@v4
         with:
-          name: ignition-config
-          path: config.ign
-
-      - name: Create GitHub Release and upload Ignition 
+          name: ignition-${{ github.ref_name }}
+          path: |
+            config-${{ github.ref_name }}.ign
+            config-${{ github.ref_name }}.ign.sha256 
+      - name: Create GitHub Release (immutable)
         uses: softprops/action-gh-release@v2 
         with: 
-          files: config.ign
+          name: Ignition ${{ github.ref_name }}
+          tag_name: ${{ github.ref_name }} 
+          generate_release_notes: true
+          make_latest: true 
+          fail_on_unmatched_files: true 
+          files: | 
+            config-${{ github.ref_name }}.ign 
+            config-${{ github.ref_name }}.ign.sha256
