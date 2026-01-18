@@ -1,0 +1,18 @@
+[Unit]
+Description=NetBird container
+
+[Container]
+ContainerName=netbird
+AddCapability=NET_ADMIN SYS_ADMIN SYS_RESOURCE NET_RAW
+Image=docker.io/netbirdio/netbird:latest
+Volume=netbird-client.volume:/var/lib/netbird:Z
+
+Secret=nb-client,type=env,target=NB_SETUP_KEY
+
+Network=host
+
+[Service]
+Restart=always
+
+[Install]
+WantedBy=multi-user.target default.target

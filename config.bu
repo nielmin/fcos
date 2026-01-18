@@ -31,6 +31,14 @@ storage:
     - path: /etc/caddy/Caddyfile
       contents:
         local: files/Caddyfile
+    - path: /etc/containers/systemd/netbird.container
+      mode: 0644
+      contents:
+        local: files/netbird.container
+    - path: /etc/containers/systemd/netbird-client.volume
+      mode: 0644
+      contents:
+        local: files/netbird-client.volume
 systemd:
   units:
     - name: podman-auto-update.timer
