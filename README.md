@@ -19,4 +19,9 @@ Currently based on [Thomas Letan's](https://github.com/lthms/tinkerbell) configu
 3. Download latest `config.ign` from releases.
     - `curl -OL https://github.com/nielmin/fcos/releases/download/main/config.ign`
 4. Run the CoreOS installer:
+
     `sudo coreos-installer install -i config.ign`
+
+5. Reboot
+
+    `sudo reboot`
