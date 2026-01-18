@@ -1,0 +1,31 @@
+name: Build Ignition from Butane
+
+on:
+  push:
+    paths:
+      - "**/*.bu"
+  workflow_dispatch:
+
+jobs:
+  build-ignition:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Convert Butane to Ignition
+        run: |
+          podman run --rm \
+            -v "${{ github.workspace }}:/workspace:Z" \
+            quay.io/coreos/butane:release \
+            --pretty \
+            --strict \
+            /workspace/config.bu \
+            > /workspace/config.ign
+
+      - name: Upload Ignition file
+        uses: actions/upload-artifact@v4
+        with:
+          name: ignition-config
+          path: config.ign
