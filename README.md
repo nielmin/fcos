@@ -5,7 +5,11 @@ Used to access my homelab outside my network, which is behind a CGNAT.
 
 ## Status
 
-Mostly done.
+WIP
+
+Decided on a whim to switch from Caddy to Traefik.
+
+Testing in progress.
 
 Previously had something that was too complicated and did not work.
 
