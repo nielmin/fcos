@@ -1,0 +1,31 @@
+[Unit]
+Description=Traefik container
+
+[Container]
+ContainerName=traefik
+
+Image=docker.io/traefik:latest
+
+PublishPort=80:80/tcp
+PublishPort=443:443/tcp
+
+Volume=/run/podman/podman.sock:/var/run/docker.sock:Z
+
+Volume=/etc/traefik/traefik.yml:/etc/traefik/traefik.yml:Z
+Volume=/etc/traefik/dynamic.yml:/etc/traefik/dynamic.yml:Z,ro
+
+Volume=/etc/traefik/certs:/certs:Z
+
+Secret=cf-token,type=env,target=CF_DNS_API_TOKEN
+
+SecurityLabelDisable=true
+
+AutoUpdate=registry
+
+Network=traefik.network
+
+[Service]
+Restart=always
+
+[Install]
+WantedBy=multi-user.target default.target
