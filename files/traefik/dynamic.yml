@@ -1,0 +1,32 @@
+http:
+  routers:
+    dashboard:
+      rule: "Host(`traefik.example.com`)"
+      entryPoints:
+        - websecure
+      service: api@internal
+      tls:
+        certResolver: letsencrypt
+      middlewares:
+        - dashboard-auth
+
+    whoami:
+      rule: "Host(`who.example.com`)"
+      entryPoints:
+         - websecure
+      service: whoami
+      tls:
+        certResolver: letsencrypt
+
+  services:
+    whoami:
+      loadBalancer:
+        servers:
+          - url: "http://whoami:80"
+
+  middlewares:
+    dashboard-auth:
+      basicAuth:
+        users:
+          # admin admin
+          - "admin:$apr1$rbfPzGx1$TzkRvH32DsTOywLOFYq28/"
