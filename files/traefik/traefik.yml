@@ -1,0 +1,33 @@
+api:
+  dashboard: true      
+  insecure: false     
+
+log:
+  level: INFO
+
+entryPoints:
+  web:
+    address: ":80"   
+    http:
+      redirections:
+        entryPoint:
+          to: websecure
+          scheme: https
+  websecure:
+    address: ":443"
+
+providers:
+  file:
+    directory: /etc/traefik
+    watch: true
+  docker:
+    endpoint: "unix:///var/run/docker.sock"
+    exposedByDefault: false               
+    network: "traefik.network"           
+
+certificatesResolvers:
+  letsencrypt:
+    acme:
+      storage: /certs/acme.json
+      dnsChallenge:
+        provider: cloudflare
