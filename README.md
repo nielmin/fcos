@@ -3,13 +3,11 @@
 ## Description
 Used to access my homelab outside my network, which is behind a CGNAT.
 
-## Status
-
-WIP
+## Status (WIP)
 
 Decided on a whim to switch from Caddy to Traefik.
 
-Testing in progress.
+Plan on having two separate `config.ign` for both Caddy and Traefik.
 
 Previously had something that was too complicated and did not work.
 
@@ -17,12 +15,16 @@ Currently based on [Thomas Letan's](https://github.com/lthms/tinkerbell) configu
 
 ## Features
 - Containers using [Podman Quadlets](https://docs.podman.io/en/stable/markdown/podman-systemd.unit.5.html)
-    - Custom [Caddy](https://github.com/caddyserver/caddy) build with [Cloudflare DNS](https://github.com/caddy-dns/cloudflare) support
-        - `.build` points to `Containerfile` to build custom Caddy image
-    - Nodes connected with [NetBird Mesh VPN](https://netbird.io/)
-    - Secrets stored with `podman secret`
-        - NetBird setup key
-        - Cloudflare DNS API token
+    - Support for Caddy and Traefik
+        - Custom [Caddy](https://github.com/caddyserver/caddy) build with [Cloudflare DNS](https://github.com/caddy-dns/cloudflare) support
+            - `.build` points to `Containerfile` to build custom Caddy image
+        - Basic Traefik setup using Cloudflare DNS-01 Challenge
+            - Static `traefik.yml` config for traefik-related settings
+            - Dynamic `dynamic.yml` config for all other routes
+- Nodes connected with [NetBird Mesh VPN](https://netbird.io/)
+- Secrets stored with `podman secret`
+    - NetBird setup key
+    - Cloudflare DNS API token
 
 ## HOWTO
 1. Download [Fedora CoreOS Live ISO](https://fedoraproject.org/coreos/download?stream=stable)
