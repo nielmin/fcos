@@ -5,8 +5,6 @@ http:
       entryPoints:
         - websecure
       service: api@internal
-      tls:
-        certResolver: letsencrypt
       middlewares:
         - dashboard-auth
 
@@ -15,8 +13,6 @@ http:
       entryPoints:
          - websecure
       service: whoami
-      tls:
-        certResolver: letsencrypt
 
   services:
     whoami:
