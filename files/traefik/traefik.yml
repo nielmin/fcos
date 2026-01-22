@@ -1,13 +1,13 @@
 api:
-  dashboard: true      
-  insecure: false     
+  dashboard: true
+  insecure: false
 
 log:
-  level: INFO
+  level: ERROR
 
 entryPoints:
   web:
-    address: ":80"   
+    address: ":80"
     http:
       redirections:
         entryPoint:
@@ -15,6 +15,13 @@ entryPoints:
           scheme: https
   websecure:
     address: ":443"
+    http:
+      tls:
+        certResolver: letsencrypt
+        domains:
+          - main: "example.com"
+            sans:
+              - "*.example.com"
 
 providers:
   file:
@@ -22,8 +29,8 @@ providers:
     watch: true
   docker:
     endpoint: "unix:///var/run/docker.sock"
-    exposedByDefault: false               
-    network: "traefik.network"           
+    exposedByDefault: false
+    network: "traefik.network"
 
 certificatesResolvers:
   letsencrypt:
