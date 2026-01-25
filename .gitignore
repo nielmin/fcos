@@ -1,1 +1,3 @@
 *.ign
+*.envrc
+*.direnv
